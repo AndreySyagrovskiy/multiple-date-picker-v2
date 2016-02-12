@@ -1,0 +1,26 @@
+{
+  "name": "multiple-date-picker-v2",
+  "version": "1.0.0",
+  "description": "Add support angular 1.5 and highe, range select was added original source https://arca-computing.github.io/MultipleDatePicker/",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreySyagrovskiy/multiple-date-picker-v2.git"
+  },
+  "keywords": [
+    "multiple-date-picker",
+    "multiple",
+    "data",
+    "piker",
+    "multiple-date-picker-v2"
+  ],
+  "author": "Andrey Syagrovskiy was made addition to https://arca-computing.github.io/MultipleDatePicker/",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndreySyagrovskiy/multiple-date-picker-v2/issues"
+  },
+  "homepage": "https://github.com/AndreySyagrovskiy/multiple-date-picker-v2#readme"
+}
