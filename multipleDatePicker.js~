@@ -270,7 +270,6 @@ angular.module('multipleDatePicker', [])
                     if (momentDate.selectable && !prevented) {
                         momentDate.selected = !momentDate.selected;
 
-                        console.log(event);
                         if(event.shiftKey) {
                             if(scope.convertedDaysSelected.length > 1) {
                                 scope.convertedDaysSelected = [];
@@ -287,12 +286,11 @@ angular.module('multipleDatePicker', [])
                                     dateStart = momentDate;
                                     dateEnd   = scope.convertedDaysSelected[0];
                                 }
-
+				
+				scope.convertedDaysSelected = [];
                                 moment.range(dateStart, dateEnd).by('day', (moment) => {
                                     scope.convertedDaysSelected.push(moment);
                                 });
-
-                                console.log(scope.convertedDaysSelected);
 
                             }
                         } else if (momentDate.selected) {

@@ -116,11 +116,11 @@ angular.module('multipleDatePicker', [])
                  * */
                 disableDaysAfter: '=?'
             },
-            template: '<div class="multiple-date-picker">' +
+            template:  '<div class="multiple-date-picker">' +
             '<div class="picker-top-row">' +
-            '<div class="text-center picker-navigate picker-navigate-left-arrow" ng-class="{\'disabled\':disableBackButton}" ng-click="previousMonth()">&lt;</div>' +
+            '<div class="text-center picker-navigate picker-navigate-left-arrow" ng-class="{\'disabled\':disableBackButton}" ng-click="previousMonth()"><span class="icon-prev"></span></div>' +
             '<div class="text-center picker-month">{{month.format(\'MMMM YYYY\')}}</div>' +
-            '<div class="text-center picker-navigate picker-navigate-right-arrow" ng-class="{\'disabled\':disableNextButton}" ng-click="nextMonth()">&gt;</div>' +
+            '<div class="text-center picker-navigate picker-navigate-right-arrow" ng-class="{\'disabled\':disableNextButton}" ng-click="nextMonth()"><span class="icon-next"></span></div>' +
             '</div>' +
             '<div class="picker-days-week-row">' +
             '<div class="text-center" ng-repeat="day in daysOfWeek">{{day}}</div>' +
@@ -270,7 +270,6 @@ angular.module('multipleDatePicker', [])
                     if (momentDate.selectable && !prevented) {
                         momentDate.selected = !momentDate.selected;
 
-                        console.log(event);
                         if(event.shiftKey) {
                             if(scope.convertedDaysSelected.length > 1) {
                                 scope.convertedDaysSelected = [];
@@ -287,12 +286,11 @@ angular.module('multipleDatePicker', [])
                                     dateStart = momentDate;
                                     dateEnd   = scope.convertedDaysSelected[0];
                                 }
-
+				
+				scope.convertedDaysSelected = [];
                                 moment.range(dateStart, dateEnd).by('day', (moment) => {
                                     scope.convertedDaysSelected.push(moment);
                                 });
-
-                                console.log(scope.convertedDaysSelected);
 
                             }
                         } else if (momentDate.selected) {
