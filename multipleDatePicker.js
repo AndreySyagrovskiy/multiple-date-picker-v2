@@ -123,10 +123,10 @@ angular.module('multipleDatePicker', [])
             '<div class="text-center picker-navigate picker-navigate-right-arrow" ng-class="{\'disabled\':disableNextButton}" ng-click="nextMonth()"><span class="icon-next"></span></div>' +
             '</div>' +
             '<div class="picker-days-week-row">' +
-            '<div class="text-center" ng-repeat="day in daysOfWeek">{{day}}</div>' +
+            '<div class="text-center" ng-repeat="day in daysOfWeek track by $index">{{day}}</div>' +
             '</div>' +
             '<div class="picker-days-row">' +
-            '<div class="text-center picker-day {{!day.otherMonth || showDaysOfSurroundingMonths ? day.css : \'\'}} {{day.otherMonth ? cssDaysOfSurroundingMonths : \'\'}}" title="{{day.title}}" ng-repeat="day in days" ng-click="toggleDay($event, day)" ng-mouseover="hoverDay($event, day)" ng-mouseleave="dayHover($event, day)" ng-class="{\'picker-selected\':day.selected, \'picker-off\':!day.selectable, \'today\':day.today,\'past\':day.past,\'future\':day.future, \'picker-other-month\':day.otherMonth}">{{day ? day.otherMonth && !showDaysOfSurroundingMonths ? \'&nbsp;\' : day.format(\'D\') : \'\'}}</div>' +
+            '<div class="text-center picker-day {{!day.otherMonth || showDaysOfSurroundingMonths ? day.css : \'\'}} {{day.otherMonth ? cssDaysOfSurroundingMonths : \'\'}} week_day{{day.isoWeekday()}}" title="{{day.title}}" ng-repeat="day in days track by $index" ng-click="toggleDay($event, day)" ng-mouseover="hoverDay($event, day)" ng-mouseleave="dayHover($event, day)" ng-class="{\'picker-selected\':day.selected, \'picker-selected-before\':(days[$index - 1] && days[$index - 1].selected),  \'picker-selected-after\':(days[$index + 1] && days[$index + 1].selected), \'picker-off\':!day.selectable, \'today\':day.today,\'past\':day.past,\'future\':day.future, \'picker-other-month\':day.otherMonth}">{{day ? day.otherMonth && !showDaysOfSurroundingMonths ? \'&nbsp;\' : day.format(\'D\') : \'\'}}</div>' +
             '</div>' +
             '</div>',
             link: function (scope) {
@@ -166,7 +166,6 @@ angular.module('multipleDatePicker', [])
                     for (var j = 0; j < maxDays; j++) {
                         days.push(createDate());
                     }
-
                     scope.days = days;
                     checkNavigationButtons();
                 };
