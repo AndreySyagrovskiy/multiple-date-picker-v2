@@ -1,6 +1,6 @@
 {
   "name": "multiple-date-picker-v2",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Add support angular 1.5 and highe, range select was added original source https://arca-computing.github.io/MultipleDatePicker/",
   "main": "Gruntfile.js",
   "scripts": {

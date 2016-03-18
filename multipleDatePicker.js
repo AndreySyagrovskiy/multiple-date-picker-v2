@@ -273,7 +273,7 @@ angular.module('multipleDatePicker', [])
                             if(scope.convertedDaysSelected.length > 1) {
                                 scope.convertedDaysSelected = [];
                             }
-                            if(scope.convertedDaysSelected.length == 0) {
+                            if(scope.convertedDaysSelected.length === 0) {
                                 scope.convertedDaysSelected.push(momentDate);
                             } else {
                                 let dateStart = null;
